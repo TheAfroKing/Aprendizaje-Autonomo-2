@@ -37,7 +37,7 @@ stop
 ```
 
 
-### Diagrama del paso de validacion de datos
+### Diagrama del paso de validacion de resultados
 ![](<Diagramas/Diagrama Validacion de resultados.png>)
 
 ```
@@ -46,7 +46,7 @@ stop
 
 start
 note right
- Diagrama de validacion de datos
+ Diagrama de validacion de resultados
 end note
 
 

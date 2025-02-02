@@ -19,12 +19,12 @@ result2 = (a+5)/(b-1)
 # Inicio la variable global de eleccion
 eleccionJugador='null'
 # Inicio la variable de la expresion regular para validar las 3 opciones
-expresionRegular = r'Piedra|Papel|Tijera'
+expresionRegular = r'^Piedra$|^Papel$|^Tijera$'
 
 # Mientras la opcion no sea valido sigo solicitando
 while not re.findall(expresionRegular, eleccionJugador):
     # Solicito que el usuario ingrese una de las 3 opciones y le pongo la primera letra en May y lo guardo en la variable global eleccion
-    eleccionJugador = input("Seleccione entre Piedra/Papel/Tijera: ").capitalize()
+    eleccionJugador = input("Escriba alguna de las opciones Piedra/Papel/Tijera: ").capitalize()
     # Si no es valido se muestra el mensaje de opción válida
     if not re.findall(expresionRegular, eleccionJugador):
         print("Seleccione una opcián válida")
