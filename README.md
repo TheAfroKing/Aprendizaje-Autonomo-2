@@ -4,7 +4,7 @@ Este repo es para el trabajo de Aprendizaje autónomo 2 de la materia LOGICA DE 
 ## Documentación
 En la carpeta Diagramas se encuentran los diagramas del juego.
 ### Diagrama general del Juego
-![](<Diagramas/Diagrama del juego.png>)
+![](<Diagramas/Diagrama del juego v2.png>)
 
 ```
 @startuml
@@ -12,28 +12,40 @@ En la carpeta Diagramas se encuentran los diagramas del juego.
 
 start
 
-:Importar modulos (re, random); 
+:Importar módulos (re, random);
+:Setear variable global eleccionJugador='null';
 
 repeat
-  :Solicitar entrada del jugador; <<input>>
-  :Convertir primera letra en mayúscula; 
-  if (Entrada válida?  \n'Piedra|Papel|Tijera') then (no)
-    :Mostrar "Seleccione una opción válida"; <<output>>
-  endif
-repeat while (Entrada válida?  \n'Piedra|Papel|Tijera') is (no) not (si)
+    :Mostrar arte ASCII del juego;
+    :Reiniciar eleccionJugador='null';
+    
+    repeat
+        :Solicitar entrada del jugador; <<input>>
+        :Convertir primera letra en mayúscula; 
+        if (Entrada válida? \n'Piedra|Papel|Tijera|Salir') then (no)
+            :Mostrar "Seleccione una opción válida"; <<output>>
+        endif
+    repeat while (Entrada válida? \n'Piedra|Papel|Tijera|Salir') is (no) not (si)
 
-:Seleccionar elección aleatoria del sistema;
-:Mostrar "Eleccción del sistema " ;<<output>>
-:Validacion de resultado;
-note right
- Este paso contiene su propio diagrama
-end note
+    if (Jugador eligió "Salir"?) then (sí) 
+        :Terminar juego;
+        stop
+    endif
 
+    :Seleccionar elección aleatoria del sistema desde lista [Piedra, Papel, Tijera];
+    :Mostrar "El sistema eligió: " + eleccionDelSistema; <<output>>
+
+    :Validación de resultado;
+    note left
+        Este paso contiene su propio diagrama
+    end note
+
+    :Solicitar nueva entrada para continuar o salir; <<input>>
+    :Convertir primera letra en mayúscula;
+repeat while (eleccionJugador != "Salir")
 
 stop
-
 @enduml
-
 ```
 
 
